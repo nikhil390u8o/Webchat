@@ -1,19 +1,24 @@
-/* public/styles.css - simple layout */
+/* Neon Theme for Chat App */
 :root {
   --sidebar-w: 320px;
-  --accent: #2b6cb0;
+  --neon-blue: #00ffff;
+  --neon-pink: #ff00ff;
+  --neon-green: #39ff14;
+  --neon-red: #ff073a;
+  --bg-dark: #0f0f1a;
+  --card-dark: #1a1a2e;
 }
 
 * {
   box-sizing: border-box;
-  font-family: Inter, system-ui, Arial, sans-serif;
+  font-family: 'Inter', system-ui, Arial, sans-serif;
 }
 
-body,
-html,
-#app {
+body, html, #app {
   height: 100%;
   margin: 0;
+  background-color: var(--bg-dark);
+  color: #fff;
 }
 
 #app {
@@ -24,13 +29,13 @@ html,
 /* Sidebar */
 #sidebar {
   width: var(--sidebar-w);
-  border-right: 1px solid #e6e6e6;
+  border-right: 1px solid var(--neon-blue);
   padding: 12px;
-  background: #fff;
+  background: #111126;
   overflow-y: auto;
 }
 
-/* Profile section */
+/* Profile */
 .profile {
   display: flex;
   gap: 10px;
@@ -42,21 +47,13 @@ html,
   width: 48px;
   height: 48px;
   border-radius: 8px;
-  background: #ddd;
+  background: var(--neon-blue);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  background-size: cover;
-  background-position: center;
-}
-
-.muted {
-  color: #888;
-}
-
-.small {
-  font-size: 12px;
+  color: #000;
+  text-shadow: 0 0 5px #000;
 }
 
 /* Sections */
@@ -68,13 +65,14 @@ html,
   font-weight: 700;
   font-size: 13px;
   margin-bottom: 6px;
+  color: var(--neon-green);
 }
 
 .list {
-  border: 1px solid #f0f0f0;
+  border: 1px solid #222;
   padding: 6px;
   border-radius: 6px;
-  background: #fafafa;
+  background: #111126;
 }
 
 .list-item {
@@ -82,12 +80,15 @@ html,
   border-radius: 6px;
   cursor: pointer;
   margin-bottom: 6px;
-  background: #fff;
-  border: 1px solid #f0f0f0;
+  background: #1a1a2e;
+  border: 1px solid #222;
+  color: var(--neon-pink);
+  transition: 0.3s;
 }
 
 .list-item:hover {
-  background: #f3f6fb;
+  background: #111126;
+  box-shadow: 0 0 10px var(--neon-pink);
 }
 
 /* Forms */
@@ -105,17 +106,26 @@ html,
 .form-row input {
   flex: 1;
   padding: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid #222;
   border-radius: 6px;
+  background: #111126;
+  color: var(--neon-blue);
 }
 
 .form-row button {
   padding: 8px 10px;
   border-radius: 6px;
   border: none;
-  background: var(--accent);
-  color: #fff;
+  background: var(--neon-pink);
+  color: #000;
+  font-weight: bold;
   cursor: pointer;
+  text-shadow: 0 0 5px #fff;
+  transition: 0.3s;
+}
+
+.form-row button:hover {
+  box-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
 }
 
 /* Main section */
@@ -128,16 +138,18 @@ html,
 /* Header */
 #header {
   height: 64px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--neon-blue);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
-  background: #fff;
+  background: #111126;
+  color: var(--neon-green);
 }
 
 #chatTitle {
   font-weight: 700;
+  text-shadow: 0 0 5px var(--neon-green);
 }
 
 /* Chat window */
@@ -145,21 +157,33 @@ html,
   flex: 1;
   padding: 12px;
   overflow: auto;
-  background: #f5f7fa;
+  background: #0f0f1a;
 }
 
 .chat-msg {
   margin: 8px 0;
-  background: #fff;
+  background: #1a1a2e;
   padding: 8px;
   border-radius: 8px;
-  border: 1px solid #eee;
+  border: 1px solid #222;
   max-width: 70%;
+  color: var(--neon-blue);
+  text-shadow: 0 0 5px var(--neon-blue);
+}
+
+.chat-msg.self {
+  color: var(--neon-green);
+  text-shadow: 0 0 5px var(--neon-green);
+}
+
+.chat-msg.other {
+  color: var(--neon-pink);
+  text-shadow: 0 0 5px var(--neon-pink);
 }
 
 .chat-msg .msg-meta {
   font-size: 12px;
-  color: #444;
+  color: var(--neon-red);
   margin-bottom: 6px;
 }
 
@@ -171,32 +195,43 @@ html,
   text-align: center;
   margin: 10px 0;
   font-size: 13px;
+  color: var(--neon-red);
+  text-shadow: 0 0 5px var(--neon-red);
 }
 
 /* Composer */
 #composer {
   height: 64px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--neon-blue);
   display: flex;
   gap: 8px;
   padding: 12px;
-  background: #fff;
+  background: #111126;
 }
 
 #composer input {
   flex: 1;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #222;
   border-radius: 8px;
+  background: #1a1a2e;
+  color: var(--neon-blue);
 }
 
 #composer button {
   padding: 10px 14px;
-  background: var(--accent);
-  color: #fff;
+  background: var(--neon-green);
+  color: #000;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
+  text-shadow: 0 0 5px #fff;
+  transition: 0.3s;
+}
+
+#composer button:hover {
+  box-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
 }
 
 /* Responsive */
