@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Realtime Chat Demo</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <div class="profile" id="profileBox">
+        <div class="avatar" id="profileAvatar">G</div>
+        <div>
+          <div id="profileName">Guest</div>
+          <div id="profileUsername" class="muted">@guest</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Groups</div>
+        <div id="groupList" class="list"></div>
+        <div class="form-row">
+          <input id="newGroupName" placeholder="New group name" />
+          <button id="createGroupBtn">Create</button>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Online Users</div>
+        <div id="userList" class="list"></div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Profile</div>
+        <div class="form-row">
+          <input id="loginUsername" placeholder="Username" />
+          <input id="loginDisplay" placeholder="Display name (optional)" />
+          <input id="avatarFile" type="file" accept="image/*" />
+          <button id="loginBtn">Login</button>
+        </div>
+      </div>
+    </aside>
+
+    <main id="main">
+      <div id="header">
+        <div id="chatTitle">Select a group or user</div>
+        <div id="headerActions"></div>
+      </div>
+
+      <div id="chatWindow"></div>
+
+      <div id="composer">
+        <input id="messageInput" placeholder="Type message and press Enter" />
+        <button id="sendBtn">Send</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="/client.js"></script>
+</body>
+</html>
